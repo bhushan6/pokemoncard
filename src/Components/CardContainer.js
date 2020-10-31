@@ -67,15 +67,20 @@ function load() {
   if(inLim === 50 && inOff === 0){
     inLim = 10;
   inOff += 50
+
   // setOff(inOff)
   getData(inLim, inOff)
   } else{
     inLim = 10;
     inOff+=10
+    
     // setOff(inOff)
     getData(inLim, inOff)
   }
 }
+
+console.log(inLim)
+  console.log(inOff)
     
   }, [lim])
 
