@@ -1,0 +1,10 @@
+.header h1 {
+  width: 100%;
+  text-align: center;
+  font-family: sans-serif;
+  margin: 1rem;
+}
+
+/* .header h1 {
+  margin: 0 auto;
+} */

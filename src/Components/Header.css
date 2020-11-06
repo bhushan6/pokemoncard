@@ -5,11 +5,40 @@ header {
   justify-content: space-between;
   /* flex-wrap: wrap;? */
   align-items: center;
-  height: 100px;
+  height: 100%;
   /* position: sticky; */
   background-color: #393e46;
   transition: all ease 1s;
-  overflow: hidden;
+  /* overflow: hidden; */
+  /* flex-direction: column; */
+  /* overflow: auto; */
+}
+
+.FaSearch,
+.FaArrowLeft {
+  font-size: 2rem;
+  /* padding: 0.5rem; */
+  /* background: transparent; */
+  /* color: white; */
+}
+
+.FaArrowLeft {
+  display: none;
+}
+
+button {
+  background-color: transparent;
+  color: white;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  padding: 2rem;
+}
+
+.search-input {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 /* .row-1 {
@@ -77,12 +106,26 @@ header img {
   } */
 
 header input {
+  box-sizing: border-box;
   margin-left: 2rem;
   font-size: 1.2rem;
-  padding: 0.5rem;
+  padding: 0.5rem 0;
   border: none;
   outline: none;
   font-family: sans-serif;
+  /* display: none; */
+  width: 0px;
+  transition: all 0.5s ease-in;
+}
+
+.show {
+  /* display: inline; */
+  padding: 00.5rem;
+  width: 100%;
+}
+
+.back {
+  display: block;
 }
 
 /* .header-con {

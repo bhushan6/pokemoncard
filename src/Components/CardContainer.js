@@ -1,19 +1,20 @@
 import React from 'react'
 import Card from './Card'
 import CardSkeleton from './CardSkeleton'
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useRef} from 'react'
 import './CardContainer.css'
 
 let pokemon = [];
 let inLim = 50;
 let inOff = 0;
 
-function CardContainer() {
+function CardContainer({getSearchState}) {
 
-    const [data, setData] = useState([]);
+  const [data, setData] = useState([]);
   const [lim, setLim] = useState(inLim);
   // const [off, setOff] = useState(inOff);
   const [loading, setLoading] = useState(true);
+  const container = useRef()
   
 
 
@@ -40,8 +41,9 @@ useEffect(() => {
 
 getData(inLim, inOff)
 
-window.addEventListener('scroll',throttle(callback, 1000) )
+  window.addEventListener('scroll',throttle(callback, 1000) )
 
+  
 function throttle(fn, wait) {
   let time = Date.now();
   return function() {
@@ -56,7 +58,11 @@ function callback() {
 
   setLoading(true)
   let scrolling = window.innerHeight + window.scrollY;
+  // let scrollable = container.current.clientHeight * 0.9;
   let scrollable = document.body.offsetHeight * 0.9;
+  // console.log(container.current.clientHeight)
+  // console.log(window.innerHeight + window.scrollY)
+  // console.log(document.body.offsetHeight * 0.9)
 
   if (scrolling >= scrollable){
     load()
@@ -88,7 +94,7 @@ console.log(inLim)
 
     return (
         <div >
-           <div className="container">
+           <div className="container" ref={container}>
                 {data.map(item => (
                     <Card 
                     key={item.id}
